@@ -43,3 +43,11 @@ class Material(Base):
     subject = Column(String, index=True) # Filters
     file_path = Column(String)
     uploaded_by = Column(Integer)
+
+class Attendance(Base):
+    __tablename__ = "attendance"
+    id = Column(Integer, primary_key=True, index=True)
+    student_id = Column(Integer, ForeignKey("users.id"))
+    subject = Column(String)
+    date = Column(String) # YYYY-MM-DD
+    status = Column(String) # "Present" or "Absent"
